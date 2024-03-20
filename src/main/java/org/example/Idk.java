@@ -38,7 +38,7 @@ public class Idk implements IVehicleRepository{
     }
 
     @Override
-    public void getVehicles() {
+    public List<Vehicle> getVehicles() {
         try (BufferedReader reader = new BufferedReader(new FileReader("Vehicles.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -54,6 +54,7 @@ public class Idk implements IVehicleRepository{
         } catch (IOException e) {
             e.printStackTrace(); // Handle exception properly in your application
         }
+        return vehicles;
     }
 
     @Override
