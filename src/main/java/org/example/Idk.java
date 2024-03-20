@@ -61,12 +61,23 @@ public class Idk implements IVehicleRepository{
     public void save() {
         for(int i = 0; i < vehicles.size(); ++i){
             try (FileWriter writer = new FileWriter("Vehicles.csv", true)){
-                //writer.write(String.format("%s \n %s \n %d \n %d \n %s \n %d", brand, model, year, price, rented, index));
                 Vehicle temp = vehicles.get(i);
                 writer.write(String.format(String.format("%s,%s,%d,%d,%s,%d%n", temp.brand, temp.model, temp.year, temp.price, temp.rented, temp.index)));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void addVehicle(Car car) {
+        vehicles.add(car);
+        save();
+    }
+
+    @Override
+    public void addVehicle(Motorcycle motorcycle) {
+        vehicles.add(motorcycle);
+        save();
     }
 }

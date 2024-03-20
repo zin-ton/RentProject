@@ -7,4 +7,6 @@ public interface IVehicleRepository {
     void returnVehicle(Integer index);
     List<Vehicle> getVehicles();
     void save();
+    void addVehicle(Car car);
+    void addVehicle(Motorcycle motorcycle);
 }
