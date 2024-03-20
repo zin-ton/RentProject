@@ -14,7 +14,7 @@ public class Authentication {
             String passwordHash = Hashing.sha256()
                     .hashString(password, StandardCharsets.UTF_8)
                     .toString();
-            if(passwordHash == user.password) return true;
+            if(passwordHash.equals(user.password)) return true;
         }
         return false;
     }
